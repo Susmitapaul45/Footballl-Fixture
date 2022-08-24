@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.football.News">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Home" layoutX="23.0" layoutY="23.0" mnemonicParsing="false" onAction="#onHomeButtonCLick" text="Home">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="Back" layoutX="23.0" layoutY="454.0" mnemonicParsing="false" onAction="#onBackButtonCLick" style="-fx-background-color: #424EF6;" text="Back">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Hyperlink fx:id="hyperlink1" layoutX="10.0" layoutY="70.0" onAction="#openLink1" prefHeight="30.0" prefWidth="595.0" text="https://eurasiantimes.com/first-eurofighter-typhoon-handed-over-to-qatar-will-guard/" textFill="#180000">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Button fx:id="hyperlink2" layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#openLink2" prefHeight="30.0" prefWidth="595.0" text="https://www.thedailystar.net/sports/football/news/brazil-play-ghana-tunisia-pre-world-cup-friendlies-3099046">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="hyperlink3" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onAction="#openLink3" prefHeight="30.0" prefWidth="595.0" text="https://bdnews24.com/sport/flwlpigcow">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="hyperlink4" layoutX="10.0" layoutY="280.0" mnemonicParsing="false" onAction="#openLink4" prefHeight="30.0" prefWidth="595.0" text="https://www.theguardian.com/sport/the-nightwatchman/2022/aug/19/joy-falling-love-farm-italy-england-cricket-world-cup">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="hyperlink5" layoutX="10.0" layoutY="350.0" mnemonicParsing="false" onAction="#openLink5" prefHeight="30.0" prefWidth="595.0" text="https://romapress.net/walter-samuel-promises-paulo-dybala-call-up-for-world-cup-2022/">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="hyperlink6" layoutX="14.0" layoutY="420.0" mnemonicParsing="false" onAction="#openLink6" prefHeight="30.0" prefWidth="595.0" text="https://thepeninsulaqatar.com/article/20/08/2022/fifa-releases-second-official-soundtrack-for-qatar-2022">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="500.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Logout" layoutX="195.0" layoutY="454.0" mnemonicParsing="false" onAction="#onLogoutButtonCLick" style="-fx-background-color: #F80C28;" text="Logout">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="70.0" fitWidth="122.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@news1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="71.0" fitWidth="120.0" layoutX="15.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@news2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="71.0" fitWidth="122.0" layoutX="16.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@news3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="74.0" fitWidth="126.0" layoutX="14.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@news4.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="71.0" fitWidth="125.0" layoutX="14.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@news5.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="74.0" fitWidth="127.0" layoutX="12.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@news6.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

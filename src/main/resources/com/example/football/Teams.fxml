@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.football.Teams">
+   <children>
+      <Button fx:id="Home" layoutX="40.0" layoutY="43.0" mnemonicParsing="false" onAction="#onHomeButtonCLick" text="Home">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Back" layoutX="57.0" layoutY="434.0" mnemonicParsing="false" onAction="#OnBackButtonClick" style="-fx-background-color: #2BF8F7;" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Logout" layoutX="775.0" layoutY="434.0" mnemonicParsing="false" onAction="#onLogoutButtonCLick" style="-fx-background-color: #F82B4E;" text="Logout">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="table" layoutX="188.0" layoutY="105.0" prefHeight="203.0" prefWidth="570.0">
+         <columns>
+            <TableColumn fx:id="TeamName" prefWidth="119.20001220703125" text="TeamName" />
+            <TableColumn fx:id="CoachName" prefWidth="186.39999389648438" text="CoachName" />
+            <TableColumn fx:id="FIFARanking" prefWidth="130.39998779296877" text="FIFA Ranking" />
+            <TableColumn fx:id="Trophies" prefWidth="130.39998779296877" text="Trophies" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

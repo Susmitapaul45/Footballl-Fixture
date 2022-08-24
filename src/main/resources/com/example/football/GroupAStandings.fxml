@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.football.GroupAStandings">
+   <children>
+      <TableView fx:id="table" layoutX="172.0" layoutY="41.0" prefHeight="159.0" prefWidth="524.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="98.4000244140625" sortable="false" text="Team" />
+          <TableColumn fx:id="matchPlayed" prefWidth="88.0" sortable="false" text="Match Played" />
+            <TableColumn fx:id="won" prefWidth="92.800048828125" sortable="false" text="Win" />
+            <TableColumn fx:id="lose" sortable="false" text="Lose" />
+            <TableColumn fx:id="draw" prefWidth="84.800048828125" sortable="false" text="Draw" />
+            <TableColumn fx:id="points" prefWidth="75.199951171875" text="Points" />
+        </columns>
+      </TableView>
+      <Button fx:id="Home" layoutX="47.0" layoutY="41.0" mnemonicParsing="false" onAction="#onHomeButtonCLick" text="Home">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Logout" layoutX="781.0" layoutY="425.0" mnemonicParsing="false" onAction="#onLogoutButtonCLick" style="-fx-background-color: #F80722;" text="Logout">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Back" layoutX="63.0" layoutY="425.0" mnemonicParsing="false" onAction="#onBackButtonCLick" style="-fx-background-color: #424EF6;" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

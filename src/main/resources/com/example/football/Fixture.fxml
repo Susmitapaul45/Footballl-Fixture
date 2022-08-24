@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #000A0A;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.football.Fixture">
+   <right>
+      <AnchorPane prefHeight="500.0" prefWidth="420.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Logout" layoutX="204.0" layoutY="430.0" mnemonicParsing="false" onAction="#onLogoutButtonCLick" style="-fx-background-color: #F80C28;" text="Logout">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="Groups" layoutX="54.0" layoutY="128.0" mnemonicParsing="false" onAction="#onGroupsButtonCLick" prefHeight="110.0" prefWidth="226.0" style="-fx-background-color: #F5F80C;" text="Groups">
+               <font>
+                  <Font name="System Bold Italic" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane layoutX="10.0" layoutY="50.0" prefHeight="500.0" prefWidth="420.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="CurrentStanding" layoutX="176.0" layoutY="66.0" mnemonicParsing="false" onAction="#onCurrentStandingButtonCLick" prefHeight="110.0" prefWidth="226.0" style="-fx-background-color: #F5F80C;" text="Current Standing">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="MatchSchedule" layoutX="176.0" layoutY="250.0" mnemonicParsing="false" onAction="#onMatchScheduleButtonCLick" prefHeight="110.0" prefWidth="226.0" style="-fx-background-color: #F5F80C;" text="Match Schedule">
+               <font>
+                  <Font name="System Bold Italic" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="Back" layoutX="35.0" layoutY="420.0" mnemonicParsing="false" onAction="#onBackButtonCLick" style="-fx-background-color: #424EF6;" text="Back" textFill="#1b0202">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="Home" layoutX="26.0" layoutY="41.0" mnemonicParsing="false" onAction="#onHomeButtonCLick" text="Home">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
