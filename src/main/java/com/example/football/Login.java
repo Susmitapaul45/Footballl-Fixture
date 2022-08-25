@@ -50,7 +50,7 @@ public class Login implements Initializable{
             this.isAdmin = true;
             loginLabel.setText("LogIn Successfull");
             HelloApplication h = new HelloApplication();
-            h.changeScene(current,"Home.fxml");
+            h.changeScene(current,"Admin.fxml");
 
         } else if (username.getText().toString().isEmpty() || pass.getText().toString().isEmpty()) {
             loginLabel.setText("Please input information");
