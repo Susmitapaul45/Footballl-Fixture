@@ -61,7 +61,7 @@ public class News {
     @FXML
     void openLink2(ActionEvent event) throws URISyntaxException, IOException {
         System.out.println("link clicked!");
-        Desktop Desktop = null;
+       Desktop Desktop = null;
         Desktop.getDesktop().browse(new URI("https://www.thedailystar.net/sports/football/news/brazil-play-ghana-tunisia-pre-world-cup-friendlies-3099046"));
     }
     @FXML

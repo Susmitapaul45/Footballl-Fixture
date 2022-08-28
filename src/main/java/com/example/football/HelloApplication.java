@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.Stack;
 
 public class HelloApplication extends Application {
@@ -43,5 +45,22 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    public static Connection getConnection(){
+        try {
+            String driver =  "com.mysql.cj.jdbc.Driver";
+            String databaseurl = "jdbc:mysql://localhost:3306/abc";
+            String username = "root";
+            String password = "";
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(databaseurl, username, password);
+            System.out.println("Database Connected");
+            return conn;
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
     }
 }

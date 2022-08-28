@@ -9,12 +9,12 @@
    <left>
       <AnchorPane prefHeight="500.0" prefWidth="420.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="Home" layoutX="51.0" layoutY="427.0" mnemonicParsing="false" onAction="#onHomeButtonCLick" style="-fx-background-color: #424EF6;" text="Back">
+            <Button fx:id="Back" layoutX="51.0" layoutY="427.0" mnemonicParsing="false" onAction="#onBackButtonCLick" style="-fx-background-color: #424EF6;" text="Back">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="51.0" layoutY="55.0" mnemonicParsing="false" text="Home">
+            <Button fx:id="Home" layoutX="51.0" layoutY="55.0" mnemonicParsing="false" onAction="#onHomeButtonCLick" text="Home">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>

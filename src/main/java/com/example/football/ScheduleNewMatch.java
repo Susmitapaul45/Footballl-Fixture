@@ -32,5 +32,6 @@ public class ScheduleNewMatch implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }
