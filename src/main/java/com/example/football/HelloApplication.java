@@ -13,6 +13,7 @@ import java.util.Stack;
 
 public class HelloApplication extends Application {
     private static Stage stg;
+    public static Connection dbConnection;
     private static Stack<String> previous = new Stack<String>();
 
     @Override
@@ -43,14 +44,19 @@ public class HelloApplication extends Application {
         }
     }
 
+    public Connection getDbConnection(){
+        return dbConnection;
+    }
+
     public static void main(String[] args) {
+        dbConnection = getConnection();
         launch();
     }
 
     public static Connection getConnection(){
         try {
             String driver =  "com.mysql.cj.jdbc.Driver";
-            String databaseurl = "jdbc:mysql://localhost:3306/abc";
+            String databaseurl = "jdbc:mysql://localhost:3306/football";
             String username = "root";
             String password = "";
             Class.forName(driver);
