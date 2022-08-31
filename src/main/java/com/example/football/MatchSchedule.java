@@ -52,7 +52,6 @@ public class MatchSchedule {
         h.changeScene(current,"QuarterFinal.fxml");
     }
     @FXML
-
     protected void onSemifinalButtonCLick() throws IOException {
         HelloApplication h = new HelloApplication();
         h.changeScene(current,"SemiFinal.fxml");

@@ -4,29 +4,57 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.football.ScheduleNewMatch">
+<AnchorPane onKeyPressed="#onConfirmButtonClick" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.football.ScheduleNewMatch">
    <children>
       <Label fx:id="display" layoutX="259.0" layoutY="34.0" prefHeight="35.0" prefWidth="360.0" />
-      <Button fx:id="home" layoutX="36.0" layoutY="39.0" mnemonicParsing="false" text="Home">
+      <Button fx:id="home" layoutX="36.0" layoutY="39.0" mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></Button>
-      <Button fx:id="back" layoutX="39.0" layoutY="433.0" mnemonicParsing="false" style="-fx-background-color: #84A5F9;" text="Back">
+      <Button fx:id="back" layoutX="39.0" layoutY="433.0" mnemonicParsing="false" onAction="#onBackButtonClick" style="-fx-background-color: #84A5F9;" text="Back">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></Button>
-      <Button fx:id="logout" layoutX="787.0" layoutY="433.0" mnemonicParsing="false" style="-fx-background-color: #FD3623;" text="Logout">
+      <Button fx:id="logout" layoutX="787.0" layoutY="433.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" style="-fx-background-color: #FD3623;" text="Logout">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></Button>
-      <Button fx:id="confirm" layoutX="400.0" layoutY="351.0" mnemonicParsing="false" text="Confirm" />
-      <ComboBox fx:id="groupSelector" layoutX="346.0" layoutY="127.0" prefWidth="150.0" />
-      <ComboBox fx:id="teamSelector1" layoutX="206.0" layoutY="218.0" prefWidth="150.0" />
-      <ComboBox fx:id="teamSelector2" layoutX="504.0" layoutY="218.0" prefWidth="150.0" />
-      <DatePicker fx:id="date" layoutX="141.0" layoutY="298.0" />
-      <Label layoutX="255.0" layoutY="130.0" prefHeight="18.0" prefWidth="78.0" text="Select Group" />
+      <Button fx:id="confirm" layoutX="317.0" layoutY="401.0" mnemonicParsing="false" onAction="#onConfirmButtonClick" text="Confirm">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <ComboBox fx:id="groupSelector" layoutX="316.0" layoutY="80.0" onAction="#onGroupSelectorChange" prefWidth="150.0" />
+      <ComboBox fx:id="teamSelector1" layoutX="316.0" layoutY="132.0" prefWidth="150.0" />
+      <ComboBox fx:id="teamSelector2" layoutX="316.0" layoutY="178.0" prefWidth="150.0" />
+      <DatePicker fx:id="date" layoutX="317.0" layoutY="237.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label layoutX="192.0" layoutY="81.0" prefHeight="22.0" prefWidth="86.0" text="Select Group">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="235.0" layoutY="133.0" prefHeight="22.0" prefWidth="47.0" text="Team1">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="179.0" prefHeight="22.0" prefWidth="47.0" text="Team2">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="238.0" prefHeight="22.0" prefWidth="38.0" text="Date">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="245.0" layoutY="302.0" text="Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="time" layoutX="317.0" layoutY="300.0" />
    </children>
 </AnchorPane>
