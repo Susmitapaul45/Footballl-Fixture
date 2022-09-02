@@ -56,7 +56,7 @@ public class HelloApplication extends Application {
     public static Connection getConnection(){
         try {
             String driver =  "com.mysql.cj.jdbc.Driver";
-            String databaseurl = "jdbc:mysql://localhost:3306/football";
+            String databaseurl = "jdbc:mysql://localhost:3306/football?serverTimezone=Asia/Dhaka";
             String username = "root";
             String password = "";
             Class.forName(driver);

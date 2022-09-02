@@ -45,7 +45,22 @@ public class GroupStage implements Initializable {
     private Button Back;
 
     private ObservableList<GroupSTG> getMatches() {
-        ObservableList<GroupSTG> list = FXCollections.observableArrayList(
+        ObservableList<GroupSTG> list = FXCollections.observableArrayList();
+
+        try {
+            String sql = "Select * from schedule";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            while(rs.next()){
+                list.add(new GroupSTG(rs.getString(2), rs.getString(3), rs.getString(1), rs.getString(4) ));
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
+
+//          FXCollections.observableArrayList(
 
 //            new GroupSTG("South Korea", "Chilly", "20 November,2022","10:00 PM"),
 //            new GroupSTG("Ecuador", "Senegal", "21 November,2022","7:00 PM"),
@@ -63,7 +78,7 @@ public class GroupStage implements Initializable {
 //            new GroupSTG("Brazil", "Serbia", "30 November,2022","4:00 PM"),
 //            new GroupSTG("Portugal", "Ghana", "1 December,2022","7:00 PM"),
 //            new GroupSTG("Uruguay", "South Korea", "2 December,2022","1:00 PM")
-        );
+//        );
         return list;
     }
 
@@ -76,6 +91,7 @@ public class GroupStage implements Initializable {
 
         table.setItems(getMatches());
     }
+
 
     @FXML
     protected void onHomeButtonCLick() throws IOException {

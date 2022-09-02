@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ResourceBundle;
 
 public class ScheduleNewMatch implements Initializable {
@@ -49,6 +51,7 @@ public class ScheduleNewMatch implements Initializable {
         teamSelector2.setItems(getGroupATeams());
         teamSelector1.setValue(getGroupATeams().get(0));
         teamSelector2.setValue(getGroupATeams().get(1));
+        date.setValue(LocalDate.now());
     }
 
     @FXML
@@ -60,8 +63,11 @@ public class ScheduleNewMatch implements Initializable {
         String sql = "insert into schedule(date,team1,team2,time) values(?,?,?,?)";
 
         try{
+            java.util.Date newDate = java.util.Date.from(date.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            java.sql.Date sqlDate = new java.sql.Date(newDate.getTime());
+
             pst = conn.prepareStatement(sql);
-            pst.setDate(1, new Date(date.getValue().toEpochDay()));
+            pst.setDate(1, sqlDate);
             pst.setString(2, teamSelector1.getValue().toString());
             pst.setString(3, teamSelector2.getValue().toString());
             pst.setString(4, time.getText().toString());
