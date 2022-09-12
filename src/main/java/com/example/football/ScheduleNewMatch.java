@@ -44,13 +44,13 @@ public class ScheduleNewMatch implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> list = FXCollections.observableArrayList("GroupA", "GroupB","GroupC","GroupD","GroupE","GroupF","GroupG","GroupH");
+        ObservableList<String> list = FXCollections.observableArrayList( "GroupA", "GroupB","GroupC","GroupD","GroupE","GroupF","GroupG","GroupH");
         groupSelector.setItems(list);
-        groupSelector.setValue("GroupA");
-        teamSelector1.setItems(getGroupATeams());
-        teamSelector2.setItems(getGroupATeams());
-        teamSelector1.setValue(getGroupATeams().get(0));
-        teamSelector2.setValue(getGroupATeams().get(1));
+        groupSelector.setValue(list.get(0));
+        teamSelector1.setItems(getAllTeams());
+        teamSelector2.setItems(getAllTeams());
+        teamSelector1.setValue(getAllTeams().get(0));
+        teamSelector2.setValue(getAllTeams().get(1));
         date.setValue(LocalDate.now());
     }
 
@@ -78,59 +78,76 @@ public class ScheduleNewMatch implements Initializable {
         } catch (Exception e){
             System.out.println(e);
         }
-
     }
 
     @FXML
     protected void onGroupSelectorChange() {
-        if(groupSelector.getValue().toString().equals("GroupA")){
-            teamSelector1.setItems(getGroupATeams());
-            teamSelector2.setItems(getGroupATeams());
-            teamSelector1.setValue(getGroupATeams().get(0));
-            teamSelector2.setValue(getGroupATeams().get(1));
-        }
-        else if(groupSelector.getValue().toString().equals("GroupB")){
-            teamSelector1.setItems(getGroupBTeams());
-            teamSelector2.setItems(getGroupBTeams());
-            teamSelector1.setValue(getGroupBTeams().get(0));
-            teamSelector2.setValue(getGroupBTeams().get(1));
-        }
-        else if(groupSelector.getValue().toString().equals("GroupC")){
-            teamSelector1.setItems(getGroupCTeams());
-            teamSelector2.setItems(getGroupCTeams());
-            teamSelector1.setValue(getGroupCTeams().get(0));
-            teamSelector2.setValue(getGroupCTeams().get(1));
-        }
-        else if(groupSelector.getValue().toString().equals("GroupD")){
-            teamSelector1.setItems(getGroupDTeams());
-            teamSelector2.setItems(getGroupDTeams());
-            teamSelector1.setValue(getGroupDTeams().get(0));
-            teamSelector2.setValue(getGroupDTeams().get(1));
-        }
-        else if(groupSelector.getValue().toString().equals("GroupE")){
-            teamSelector1.setItems(getGroupETeams());
-            teamSelector2.setItems(getGroupETeams());
-            teamSelector1.setValue(getGroupETeams().get(0));
-            teamSelector2.setValue(getGroupETeams().get(1));
-        }
-        else if(groupSelector.getValue().toString().equals("GroupF")){
-            teamSelector1.setItems(getGroupFTeams());
-            teamSelector2.setItems(getGroupFTeams());
-            teamSelector1.setValue(getGroupFTeams().get(0));
-            teamSelector2.setValue(getGroupFTeams().get(1));
-        }
-        else if(groupSelector.getValue().toString().equals("GroupG")){
-            teamSelector1.setItems(getGroupGTeams());
-            teamSelector2.setItems(getGroupGTeams());
-            teamSelector1.setValue(getGroupGTeams().get(0));
-            teamSelector2.setValue(getGroupGTeams().get(1));
-        }
-        else if(groupSelector.getValue().toString().equals("GroupH")){
-            teamSelector1.setItems(getGroupHTeams());
-            teamSelector2.setItems(getGroupHTeams());
-            teamSelector1.setValue(getGroupHTeams().get(0));
-            teamSelector2.setValue(getGroupHTeams().get(1));
-        }
+        teamSelector1.setItems(getAllTeams());
+        teamSelector2.setItems(getAllTeams());
+        teamSelector1.setValue(getAllTeams().get(0));
+        teamSelector2.setValue(getAllTeams().get(1));
+
+//       if(groupSelector.getValue().toString().equals("GroupA")){
+//            teamSelector1.setItems(getGroupATeams());
+//            teamSelector2.setItems(getGroupATeams());
+//            teamSelector1.setValue(getGroupATeams().get(0));
+//            teamSelector2.setValue(getGroupATeams().get(1));
+//        }
+//        else if(groupSelector.getValue().toString().equals("GroupB")){
+//            teamSelector1.setItems(getGroupBTeams());
+//            teamSelector2.setItems(getGroupBTeams());
+//            teamSelector1.setValue(getGroupBTeams().get(0));
+//            teamSelector2.setValue(getGroupBTeams().get(1));
+//        }
+//        else if(groupSelector.getValue().toString().equals("GroupC")){
+//            teamSelector1.setItems(getGroupCTeams());
+//            teamSelector2.setItems(getGroupCTeams());
+//            teamSelector1.setValue(getGroupCTeams().get(0));
+//            teamSelector2.setValue(getGroupCTeams().get(1));
+//        }
+//        else if(groupSelector.getValue().toString().equals("GroupD")){
+//            teamSelector1.setItems(getGroupDTeams());
+//            teamSelector2.setItems(getGroupDTeams());
+//            teamSelector1.setValue(getGroupDTeams().get(0));
+//            teamSelector2.setValue(getGroupDTeams().get(1));
+//        }
+//        else if(groupSelector.getValue().toString().equals("GroupE")){
+//            teamSelector1.setItems(getGroupETeams());
+//            teamSelector2.setItems(getGroupETeams());
+//            teamSelector1.setValue(getGroupETeams().get(0));
+//            teamSelector2.setValue(getGroupETeams().get(1));
+//        }
+//        else if(groupSelector.getValue().toString().equals("GroupF")){
+//            teamSelector1.setItems(getGroupFTeams());
+//            teamSelector2.setItems(getGroupFTeams());
+//            teamSelector1.setValue(getGroupFTeams().get(0));
+//            teamSelector2.setValue(getGroupFTeams().get(1));
+//        }
+//        else if(groupSelector.getValue().toString().equals("GroupG")){
+//            teamSelector1.setItems(getGroupGTeams());
+//            teamSelector2.setItems(getGroupGTeams());
+//            teamSelector1.setValue(getGroupGTeams().get(0));
+//            teamSelector2.setValue(getGroupGTeams().get(1));
+//        }
+//        else if(groupSelector.getValue().toString().equals("GroupH")){
+//            teamSelector1.setItems(getGroupHTeams());
+//            teamSelector2.setItems(getGroupHTeams());
+//            teamSelector1.setValue(getGroupHTeams().get(0));
+//            teamSelector2.setValue(getGroupHTeams().get(1));
+//        }
+    }
+
+    private ObservableList<String> getAllTeams(){
+        ObservableList<String> t = FXCollections.observableArrayList("Qatar", "Ecuador", "Senegal", "Netherlands",
+                "England", "Iran", "USA", "Wales",
+                "Argentina", "Saudi Arabia", "Mexico", "Poland",
+                "France", "Australia", "Denmark", "Tunisia",
+                "Spain", "Costa Rica", "Germany", "Japan",
+                "Belgium", "Canada", "Morcocco", "Croatia",
+                "Serbia", "Switzerland", "Cameroon", "Brazil",
+                "South Korea", "Portugal", "Ghana", "Uruguay"
+        );
+        return t;
     }
 
     private ObservableList<String> getGroupATeams(){
