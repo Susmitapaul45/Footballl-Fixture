@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignUp implements Initializable {
 
@@ -44,7 +46,10 @@ public class SignUp implements Initializable {
 
     @FXML
     protected void onSignUpButtonClick() throws IOException{
-        if (username.getText().toString().isEmpty()){
+        if(!validateEmail(email.getText().toString())){
+            dispaly.setText("Please input a valid email.");
+        }
+        else if (username.getText().toString().isEmpty()){
             dispaly.setText("Username can not be empty.");
         }
         else if(password.getText().toString().isEmpty()){
@@ -81,6 +86,13 @@ public class SignUp implements Initializable {
                 System.out.println(e);
             }
         }
+    }
+
+    private boolean validateEmail(String e) {
+        String regex = "^(.+)@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(e);
+        return matcher.matches();
     }
 
     @FXML
