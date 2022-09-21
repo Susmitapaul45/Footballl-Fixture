@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ScheduleNewMatch implements Initializable {
 
@@ -62,6 +64,14 @@ public class ScheduleNewMatch implements Initializable {
 
         String sql = "insert into schedule(date,team1,team2,time) values(?,?,?,?)";
 
+        if(!isValidTime(time.getText().toString())){
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Invalid input");
+            errorAlert.setContentText("Please input a valid time in 00:00 to 23:59 range");
+            errorAlert.showAndWait();
+            return;
+        }
+
         try{
             java.util.Date newDate = java.util.Date.from(date.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
             java.sql.Date sqlDate = new java.sql.Date(newDate.getTime());
@@ -78,6 +88,18 @@ public class ScheduleNewMatch implements Initializable {
         } catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    private boolean isValidTime(String t){
+        String regex = "([01]/[0-9]|2[0-3]):[0-5][0-9]";
+
+        Pattern p = Pattern.compile(regex);
+        if (t == null){
+            return false;
+        }
+        Matcher m = p.matcher(t);
+
+        return m.matches();
     }
 
     @FXML

@@ -89,7 +89,7 @@ public class SignUp implements Initializable {
     }
 
     private boolean validateEmail(String e) {
-        String regex = "^(.+)@(.+)$";
+        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(e);
         return matcher.matches();
