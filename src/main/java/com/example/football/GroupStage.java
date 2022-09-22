@@ -48,16 +48,18 @@ public class GroupStage implements Initializable {
         ObservableList<GroupSTG> list = FXCollections.observableArrayList();
 
         try {
-            String sql = "Select * from schedule";
+            String sql = "Select team1, team2, date, time from schedule";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
 
-            while(rs.next()){
-                list.add(new GroupSTG(rs.getString(2), rs.getString(3), rs.getString(1), rs.getString(4) ));
+            while (rs.next()) {
+                list.add(new GroupSTG(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
+        return list;
+    }
 
 
 //          FXCollections.observableArrayList(
@@ -79,8 +81,8 @@ public class GroupStage implements Initializable {
 //            new GroupSTG("Portugal", "Ghana", "1 December,2022","7:00 PM"),
 //            new GroupSTG("Uruguay", "South Korea", "2 December,2022","1:00 PM")
 //        );
-        return list;
-    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

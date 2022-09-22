@@ -32,7 +32,6 @@ public class MatchSchedule {
         h.changeScene(current,"GroupStage.fxml");
     }
 
-
     @FXML
     protected void onRoundOf16ButtonCLick() throws IOException {
         HelloApplication h = new HelloApplication();

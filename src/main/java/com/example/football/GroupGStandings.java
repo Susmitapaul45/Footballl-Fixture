@@ -37,12 +37,12 @@ public class GroupGStandings  implements Initializable {
     @FXML
     private Button Back;
 
-    ObservableList<GroupStandingsData> list = FXCollections.observableArrayList(
-            new GroupStandingsData("South Korea", 3, 3, 0, 0, 9),
-            new GroupStandingsData("Brazil", 2, 2, 0, 0, 10),
-            new GroupStandingsData("Equator", 3, 0, 3, 1, 3),
-            new GroupStandingsData("Span", 6, 4, 2, 0, 8)
-    );
+//    ObservableList<GroupStandingsData> list = FXCollections.observableArrayList(
+//            new GroupStandingsData("South Korea", 3, 3, 0, 0, 9),
+//            new GroupStandingsData("Brazil", 2, 2, 0, 0, 10),
+//            new GroupStandingsData("Equator", 3, 0, 3, 1, 3),
+//            new GroupStandingsData("Span", 6, 4, 2, 0, 8)
+//    );
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -53,7 +53,8 @@ public class GroupGStandings  implements Initializable {
         draw.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, Integer>("draw"));
         points.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, Integer>("points"));
 
-        table.setItems(list);
+        CurrentStanding c = new CurrentStanding();
+        table.setItems(c.getStandings("GroupG"));
     }
 
     @FXML

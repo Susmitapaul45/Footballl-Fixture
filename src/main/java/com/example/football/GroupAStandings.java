@@ -11,11 +11,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class GroupAStandings implements Initializable {
 
     private String current = "GroupAStandings.fxml";
+
+
+
 
     @FXML
     private TableView<GroupStandingsData> table;
@@ -40,40 +46,26 @@ public class GroupAStandings implements Initializable {
     @FXML
     private Button Back;
 
-    ObservableList<GroupStandingsData> list = FXCollections.observableArrayList(
-            new GroupStandingsData("Uruguay", 0, 0, 0, 0, 0),
-            new GroupStandingsData("Brazil", 0, 0, 0, 0, 0),
-            new GroupStandingsData("Chin", 0, 0, 0, 0, 0),
-            new GroupStandingsData("Italy", 0, 0, 0, 0, 0)
-    );
+//    ObservableList<GroupStandingsData> list = FXCollections.observableArrayList(
+//            new GroupStandingsData("Uruguay", 0, 0, 0, 0, 0),
+//            new GroupStandingsData("Brazil", 0, 0, 0, 0, 0),
+//            new GroupStandingsData("Chin", 0, 0, 0, 0, 0),
+//            new GroupStandingsData("Italy", 0, 0, 0, 0, 0)
+//    );
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Login l = new Login();
-        if (l.isAdmin()) {
-            name.setEditable(true);
-            matchPlayed.setEditable(true);
-            won.setEditable(true);
-            lose.setEditable(true);
-            draw.setEditable(true);
-            points.setEditable(true);
-        } else{
-            name.setEditable(false);
-            matchPlayed.setEditable(false);
-            won.setEditable(false);
-            lose.setEditable(false);
-            draw.setEditable(false);
-            points.setEditable(false);
-        }
-
         name.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, String>("teamName"));
         matchPlayed.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, Integer>("matchPlayed"));
         won.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, Integer>("won"));
         lose.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, Integer>("lose"));
         draw.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, Integer>("draw"));
         points.setCellValueFactory(new PropertyValueFactory<GroupStandingsData, Integer>("points"));
-        table.setEditable(true);
-        table.setItems(list);
+
+        CurrentStanding c = new CurrentStanding();
+        table.setItems(c.getStandings("GroupA"));
     }
     @FXML
     protected void onHomeButtonCLick() throws IOException {

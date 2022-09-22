@@ -1,9 +1,14 @@
 package com.example.football;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class CurrentStanding {
 
@@ -107,5 +112,30 @@ public class CurrentStanding {
     protected void onBackButtonCLick() throws IOException {
         HelloApplication h = new HelloApplication();
         h.goToBack();
+    }
+
+    public ObservableList<GroupStandingsData> getStandings(String group_name) {
+        ObservableList<GroupStandingsData> list = FXCollections.observableArrayList();
+
+        try {
+            HelloApplication h = new HelloApplication();
+            Connection conn = h.getDbConnection();
+            ResultSet rs = null;
+            PreparedStatement pst = null;
+
+            String sql = "Select team, match_played, win, lose, draw, points from standings where group_name=?";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, group_name);
+
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                list.add(new GroupStandingsData(rs.getString(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6)));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
     }
 }

@@ -19,7 +19,7 @@ public class Admin {
     @FXML
     protected void onUpdateFixtureButtonClick() throws IOException {
         HelloApplication h = new HelloApplication();
-        h.changeScene(current,"UpdateFixture.fxml");
+        h.changeScene(current,"UpdateScore.fxml");
     }
     @FXML
     protected void onHomeButtonCLick() throws IOException {
