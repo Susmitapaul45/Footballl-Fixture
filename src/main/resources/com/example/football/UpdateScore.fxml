@@ -33,7 +33,7 @@
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></Label>
-      <Label fx:id="team2" layoutX="212.0" layoutY="232.0" prefHeight="18.0" prefWidth="100.0" text="Team 2">
+      <Label fx:id="team2" layoutX="212.0" layoutY="232.0" prefHeight="22.0" prefWidth="154.0" text="Team 2">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></Label>
